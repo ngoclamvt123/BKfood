@@ -1,0 +1,11 @@
+<h1>Orders listing</h1>
+<div id="order">
+  <% @orders.each do |order| %>
+    <p><%= order.name %></p>
+  <% end %>
+</div>
+
+<form>
+  <label>say</label><br>
+  <input type="text" data-behavior="food_order_create">
+</form>
