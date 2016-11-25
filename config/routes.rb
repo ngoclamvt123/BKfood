@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
   namespace :api do
    resources :orders, only: [:create], :defaults => { :format => 'json' }
-   
+   get 'document', to: 'documents#index'
   end
+
 end

@@ -8,8 +8,4 @@ class FoodOrderChannel < ApplicationCable::Channel
     # Any cleanup needed when channel is unsubscribed
   end
 
-  def create(data)
-    #ActionCable.server.broadcast 'food_order_channel', food_order: data['food_order']
-    Order.create!(name: data['food_order'])
-  end
 end
