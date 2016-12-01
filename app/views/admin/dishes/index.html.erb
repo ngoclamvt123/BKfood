@@ -1,0 +1,20 @@
+<h1>Listing dishes</h1>
+ 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Image</th>
+  </tr>
+ 
+  <% @dishes.each do |dish| %>
+    <tr>
+      <td><%= dish.title %></td>
+      <td><%= dish.description %></td>
+      <td><%= dish.price %></td>
+      <td><%= image_tag dish.img.url(:medium) %></td>
+      <td><%= link_to 'Show', admin_dish_path(dish) %></td>
+    </tr>
+  <% end %>
+</table>
