@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   
   namespace :api do
    resources :orders, only: [:create], :defaults => { :format => 'json' }
+   get 'dishes', to: 'dishes#index'
    get 'document', to: 'documents#index'
   end
 

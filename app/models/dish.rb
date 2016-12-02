@@ -14,4 +14,7 @@ class Dish < ApplicationRecord
                 :path => ":style/:id_:filename"
       validates_attachment_content_type :img, content_type: /\Aimage\/.*\Z/
     end
+  def img_url
+     self.img.url(:medium)
+   end
 end
