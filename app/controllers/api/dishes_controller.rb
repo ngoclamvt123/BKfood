@@ -1,6 +1,7 @@
 class Api::DishesController < ApiController
 
   def index
+   
     dishes = Dish.where(isActive: 1)
     list_dishes = {"foodInfo": []}
     dishes.each do |dish|
