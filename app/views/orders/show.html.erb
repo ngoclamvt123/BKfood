@@ -1,6 +1,30 @@
 <h1>Orders listing</h1>
 <div id="order">
-  <% @orders.each do |order| %>
-    <p><%= order.name %></p>
-  <% end %>
+  <table class="table table-hover table-striped">
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Order</th>
+      <th>Created at</th>
+      <th>Status</th>
+    </tr>
+
+    <% @orders.each do |order| %>
+      <tr class="row-data">
+        <th><%= order.id %></th>
+        <th><%= order.name %></th>
+        <th><%= order.address %></th>
+        <th><%= order.phone %></th>
+        <th>
+          <%= order.detail_orders.collect {|p| [p.dish.title, p.quantity ]} %>
+          
+        </th>
+        <th><%= order.created_at %></th>
+      </tr>
+    <% end %>
+    
+  </table>
+  
 </div>

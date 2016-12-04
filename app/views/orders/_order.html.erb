@@ -1,3 +1,11 @@
-<div class="order">
- <%= food_order.name %>
-</div>
+<tr class="row-data">
+  <th><%= food_order.id %></th>
+  <th><%= food_order.name %></th>
+  <th><%= food_order.address %></th>
+  <th><%= food_order.phone %></th>
+  <th>
+    <%= food_order.detail_orders.collect {|p| [p.dish.title, p.quantity ]} %>
+    
+  </th>
+  <th><%= food_order.created_at %></th>
+</tr>
