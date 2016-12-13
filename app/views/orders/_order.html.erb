@@ -5,7 +5,7 @@
   <th><%= food_order.phone %></th>
   <th>
     <%= food_order.detail_orders.collect {|p| [p.dish.title, p.quantity ]} %>
-    
   </th>
   <th><%= food_order.created_at %></th>
+  <th><%= food_order.status %></th>
 </tr>

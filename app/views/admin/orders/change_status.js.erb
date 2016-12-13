@@ -1,0 +1,5 @@
+// $(".dropdown-menu").dropdown('toggle');
+$("#change-status-<%= @order.id %> span:first-child").text("<%= @order.status %> ");
+console.log($("#change-status-<%= @order.id %>").text());
+console.log("<%= @order.status %>");
+// alert("123");

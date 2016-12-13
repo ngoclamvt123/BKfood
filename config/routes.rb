@@ -12,6 +12,11 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :dishes
+    resources :orders do
+      member do
+        put 'change_status'
+      end
+    end
   end
 
 end
