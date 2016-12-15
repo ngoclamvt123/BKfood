@@ -7,5 +7,14 @@
     <%= food_order.detail_orders.collect {|p| [p.dish.title, p.quantity ]} %>
   </th>
   <th><%= food_order.created_at %></th>
-  <th><%= food_order.status %></th>
+  <th>
+    <div class="btn-group">
+      <button type="button" id=<%= "change-status-#{food_order.id}" %> class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span><%= food_order.status %></span>    <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        <% Order.statuses.each do |key, val| %>
+          <li value=<%= val %>><%= link_to(key, change_status_admin_order_path(id: food_order.id, val: val), method: :put, remote: true ) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </th>
 </tr>

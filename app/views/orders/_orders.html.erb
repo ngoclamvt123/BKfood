@@ -1,0 +1,33 @@
+<% @orders.each do |order| %>
+  <tr class="row-data">
+    <th><%= order.id %></th>
+    <th><%= order.name %></th>
+    <th><%= order.address %></th>
+    <th><%= order.phone %></th>
+    <th>
+      <%= order.detail_orders.collect {|p| [p.dish.title, p.quantity ]} %>
+      
+    </th>
+    <th><%= order.created_at %></th>
+    <th>
+      <div class="btn-group">
+        <% case order.status %>
+          <% when "pending" %>
+            <button type="button" id=<%= "change-status-#{order.id}" %> class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span><%= order.status %></span>    <span class="caret"></span></button>
+          <% when "accepted" %>
+            <button type="button" id=<%= "change-status-#{order.id}" %> class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span><%= order.status %></span> <span class="caret"></span></button>
+          <% when "complete" %>
+            <button type="button" id=<%= "change-status-#{order.id}" %> class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span><%= order.status %></span> <span class="caret"></span></button>
+          <% when "canceled" %>
+            <button type="button" id=<%= "change-status-#{order.id}" %> class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span><%= order.status %></span> <span class="caret"></span></button>
+        <% end %>
+        
+        <ul class="dropdown-menu">
+          <% Order.statuses.each do |key, val| %>
+            <li value=<%= val %>><%= link_to(key, change_status_admin_order_path(id: order.id, val: val), method: :put, remote: true ) %></li>
+          <% end %>
+        </ul>
+      </div>
+    </th>
+  </tr>
+<% end %>

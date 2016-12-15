@@ -1,5 +1,17 @@
 // $(".dropdown-menu").dropdown('toggle');
 $("#change-status-<%= @order.id %> span:first-child").text("<%= @order.status %> ");
+$("#change-status-<%= @order.id %>").removeClass("btn-success btn-warning btn-info btn-danger");
+<% case @order.status %>
+<% when "complete" %>
+$("#change-status-<%= @order.id %>").addClass("btn-success");
+<% when "pending" %>
+$("#change-status-<%= @order.id %>").addClass("btn-warning");
+<% when "accepted" %>
+$("#change-status-<%= @order.id %>").addClass("btn-info");
+<% when "canceled" %>
+$("#change-status-<%= @order.id %>").addClass("btn-danger");
+<% end %>
+$("#change-status-<%= @order.id %>").dropdown('toggle');
 console.log($("#change-status-<%= @order.id %>").text());
 console.log("<%= @order.status %>");
 // alert("123");

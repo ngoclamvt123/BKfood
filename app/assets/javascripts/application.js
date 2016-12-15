@@ -12,9 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+
 //= require jquery
 //= require bootstrap-sprockets
+//= require cable
+//= require jquery.infinite-pages
+//= require orders.coffee
 
 //= require js/flot/jquery.flot.js
 //= require js/flot/jquery.flot.pie.js

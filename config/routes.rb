@@ -11,12 +11,19 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :dishes
+    resources :dishes do
+      member do
+        put 'toggle_active'
+      end
+    end
     resources :orders do
       member do
         put 'change_status'
       end
     end
   end
+
+  get "log_out" => "sessions#destroy", :as => "log_out"
+  get "log_in" => "sessions#new", :as => "log_in"
 
 end

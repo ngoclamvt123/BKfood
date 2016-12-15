@@ -3,13 +3,26 @@ class Admin::DishesController < ApplicationController
     @dish = Dish.new
   end
 
+  def edit
+    @dish = Dish.find(params[:id])
+  end
+
   def create
     @dish = Dish.new(dish_params)
     @dish.isActive = 1
     if @dish.save
-      redirect_to admin_dish_path(@dish)
+      redirect_to admin_dishes_path
     else
       render :new
+    end
+  end
+
+  def update
+    @dish = Dish.find(params[:id])
+    if @dish.update(dish_params)
+      redirect_to admin_dishes_path
+    else
+      render :edit
     end
   end
 
@@ -18,8 +31,14 @@ class Admin::DishesController < ApplicationController
   end
 
   def index
-    @dishes = Dish.all
+    @dishes = Dish.order(created_at: :desc).page(params[:page]).per(10)
   end
+
+  def toggle_active
+    @dish = Dish.find(params[:id]).toggle!(:isActive)
+    redirect_to admin_dishes_path
+  end
+
 
   private
   

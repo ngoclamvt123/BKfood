@@ -3,10 +3,10 @@
   <div class="">
     <div class="page-title">
       <div class="title_left">
-        <h3>Orders list</h3>
+        <h3>Edit food</h3>
       </div>
 
-      <div class="title_right">
+      <!-- <div class="title_right">
         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
           <div class="input-group">
             <input type="text" class="form-control" placeholder="Search for...">
@@ -15,7 +15,7 @@
                           </span>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="clearfix"></div>
 
@@ -23,8 +23,8 @@
 
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
-          <!-- <div class="x_title">
-            <h2>Hover rows <small>Try hovering over the rows</small></h2>
+          <div class="x_title">
+            <h2> <small></small></h2>
             <ul class="nav navbar-right panel_toolbox">
               <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
               </li>
@@ -41,25 +41,24 @@
               </li>
             </ul>
             <div class="clearfix"></div>
-          </div> -->
-          <div id="order" class="x_content infinite-table">
-            <table class="table table-hover">
-              <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Address</th>
-                <th>Phone</th>
-                <th>Order</th>
-                <th>Created at</th>
-                <th>Status</th>
-              </tr>
-              <%= render :partial => 'orders', :object => @orders %>
-            </table>
-            <p class="pagination">
-              <%= link_to_next_page(@orders, 'Next Page', :remote => true) %>
-            </p>
+          </div>
+          <div class="x_content">
+            <br />
+            <!-- <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+              
+              <div class="ln_solid"></div>
+              <div class="form-group">
+                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                  <button type="submit" class="btn btn-primary">Cancel</button>
+                  <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+              </div>
+
+            </form> -->
+            <%= render 'form' %>
           </div>
         </div>
+        <br><br><br><br><br><br>
       </div>
     </div>
   </div>

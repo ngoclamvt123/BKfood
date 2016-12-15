@@ -1,0 +1,20 @@
+<% @dishes.each do |dish| %>
+  <tr class="row-data">
+    <th><%= dish.id %></th>
+    <th><%= dish.title %></th>
+    <th><%= dish.description %></th>
+    <th><%= dish.price %></th>
+    <th><%= image_tag dish.img.url(:medium) %></th>
+    <th><%= dish.created_at %></th>
+    <th>
+      <% if dish.isActive %>
+        <%= button_to "Disable", toggle_active_admin_dish_path(dish), method: :put, class: 'btn btn-info' %>
+      <% else %>
+        <%= button_to "Enable", toggle_active_admin_dish_path(dish),method: :put, class: 'btn btn-danger' %>
+      <% end %>
+    </th>
+    <th>
+      <%= link_to "Edit", edit_admin_dish_path(dish)%>
+    </th>
+  </tr>
+<% end %>

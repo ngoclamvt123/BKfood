@@ -30,6 +30,8 @@ gem 'redis', '~> 3.0'
 gem "paperclip", "~> 4.3"
 gem "paperclip-dropbox", ">= 1.1.7"
 gem "font-awesome-rails"
+gem 'kaminari'
+gem 'jquery-infinite-pages'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

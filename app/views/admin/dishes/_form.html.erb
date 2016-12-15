@@ -1,0 +1,45 @@
+<%= form_for [:admin, @dish], :html => {:class => 'form-horizontal form-label-left'} do |f| %>
+  <div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Title <span class="required">*</span>
+    </label>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <%= f.text_field :title, class: 'form-control col-md-7 col-xs-12' %>
+      <!-- <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"> -->
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12">Description <span class="required">*</span>
+    </label>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <!-- <textarea class="form-control" rows="3"></textarea> -->
+      <%= f.text_area :description, class: 'form-control', row: 3 %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Price <span class="required">*</span>
+    </label>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <!-- <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12"> -->
+      <%= f.text_field :price, class: 'form-control col-md-7 col-xs-12' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="exampleInputFile">File input</label>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <!-- <input class="form-control col-md-7 col-xs-12" type="file" id="exampleInputFile"> -->
+      <%= f.file_field :img, class: 'form-control col-md-7 col-xs-12' %>
+      <p class="help-block">Image size must be less than 5mb.</p>
+    </div>
+  </div>
+
+  <div class="ln_solid"></div>
+
+  <div class="form-group">
+    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+      <%= link_to "Cancel", admin_dishes_path, class: "btn btn-primary" %>
+      <!-- <button type="submit" class="btn btn-primary">Cancel</button> -->
+      <%= f.submit 'Submit', class: 'btn btn-success' %>
+      <!-- <button type="submit" class="btn btn-success">Submit</button> -->
+    </div>
+  </div>
+<% end %>

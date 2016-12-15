@@ -6,6 +6,6 @@ App.food_order = App.cable.subscriptions.create "FoodOrderChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    $('#order table tbody tr:first-child').after data['food_order']
+    $('#order table tr:first-child').after data['food_order']
 
   
