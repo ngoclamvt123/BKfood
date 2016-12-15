@@ -13,5 +13,7 @@ module BKfood2
     # -- all .rb files in that directory are automatically loaded.
     config.time_zone = 'Hanoi'
     config.active_record.default_timezone = :local
+
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'components', 'gentelella', 'production')
   end
 end

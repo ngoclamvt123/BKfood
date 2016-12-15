@@ -29,6 +29,7 @@ gem 'redis', '~> 3.0'
 # gem 'bcrypt', '~> 3.1.7'
 gem "paperclip", "~> 4.3"
 gem "paperclip-dropbox", ">= 1.1.7"
+gem "font-awesome-rails"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
